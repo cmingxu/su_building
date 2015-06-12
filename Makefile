@@ -36,7 +36,7 @@ package:
 
 gp:
 	git add .
-	message=$(read -p "message: ")
+	message=$(shell read -p "message: ")
 	git ci -m "[MOD] $(message)"
 	git push origin master
 
