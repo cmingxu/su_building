@@ -25,7 +25,6 @@ kill_su:
 start_su:
 	$(OPEN) $(SU_APP)
 
-
 build_css:
 	$(SASS) src/su_building/stylesheets/style.css.sass src/su_building/stylesheets/style.css
 
@@ -34,3 +33,8 @@ preview:
 
 #production
 package:
+
+gp:
+	git add .
+	git ci -m "[MOD] $@"
+	git push origin master
