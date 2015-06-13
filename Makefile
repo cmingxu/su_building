@@ -5,16 +5,17 @@ SU_APP := /Applications/SketchUp\ 2015/SketchUp.app
 POCH_SECONDS = $(shell date +%s)
 SU_ID="$(shell ps aux | grep 'SketchUp.app' | grep -v 'grep' | tr -s ' ' | cut -d' ' -f2)"
 
+BASE := /Users/cmingxu/Code/ROR/su_building
+
 
 default: all
 
 all: build_css linking kill_su start_su
 
 linking:
-	rm $(ROOT_PATH)/su_building.rb
-	ln -s src/su_building/su_building.rb $(ROOT_PATH)/su_building.rb
-	rm -r $(ROOT_PATH)/su_building
-	ln -s src/su_building/su_building $(ROOT_PATH)/su_building
+	rm -f $(ROOT_PATH)/su_building.rb
+	rm -fr $(ROOT_PATH)/su_building
+	cp -r ./src/* $(ROOT_PATH)/
 
 goto:
 	cd $(ROOT_PATH)
@@ -28,7 +29,7 @@ start_su:
 build_css:
 	$(SASS) src/su_building/stylesheets/style.css.sass src/su_building/stylesheets/style.css
 
-preview:
+preview: build_css
 	$(OPEN) src/su_building/html/index.html
 
 #production
@@ -36,7 +37,6 @@ package:
 
 gp:
 	git add .
-	message=$(shell read -p "message: ")
-	git ci -m "[MOD] $(message)"
+	git ci -m "[MOD]"
 	git push origin master
 

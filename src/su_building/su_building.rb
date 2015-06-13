@@ -1,1 +1,0 @@
-OOT_PATH/su_building.rb
