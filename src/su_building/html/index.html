@@ -5,6 +5,7 @@
 <script src="../javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
 <script src="../javascripts/angular.js" type="text/javascript" charset="utf-8"></script>
 <script src="../javascripts/script.js" type="text/javascript" charset="utf-8"></script>
+<script src="../javascripts/jquery.accordion.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="../stylesheets/style.css" type="text/css" media="all" />
 </head>
 
@@ -16,18 +17,20 @@
   </div>
   <div class="head">
     <div id="head_icon">
-      <img ng-src="current_model.icon" alt="" />
+      <img ng-src="{{current_model.thumbnail}}" alt="" width=100/>
     </div>
 
     <div class="head_name_and_actions">
-      <input type="text" name="model_name" id="" value="" />
+      <input type="text" name="" id="" value="{{current_model.name}}" />
       <dl>
         <dt><a href="" ng-click="bridge('logger', 'abcde')">上传</a></dt>
-        <dt><a href="" ng-click="bridge('list', '')">下载</a></dt>
+        <dt><a href="" ng-click="bridge('current_model_change', '')">下载</a></dt>
         <dt><a href="">建造</a></dt>
         <dt><a href="">替换</a></dt>
       </dl>
     </div>
+
+    <div class="clearfix"> </div>
   </div>
 
   <div class="footer">
@@ -38,6 +41,17 @@
   </div>
 
   <div class='container'>
+    <div class="accordion">
+      <div class='control'><a href="">Panel 1</a></div>
+      <div class='content'>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</div>
+
+      <div class='control'><a href="">Panel 2</a></div>
+      <div class='content'>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</div>
+
+      <div class='control'><a href="">Panel 3</a></div>
+      <div class='content'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</div>
+
+    </div>
   </div>
 
 </div>

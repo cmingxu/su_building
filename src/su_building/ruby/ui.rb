@@ -17,20 +17,12 @@ class BuildingUI
 
     @my_dialog.min_height = @my_dialog.max_height = HEIGHT
     @my_dialog.min_width = @my_dialog.max_width = WIDTH
-  end
-
-  def add_callbacks
-    ActionCallback.callbacks.each do |c|
-      @my_dialog.add_action_callback(c.name) do |action, params|
-        $logger.debug "callback for #{c.name} called with params #{params}"
-        c.callback.call c.name, params
-      end
-    end
+    ActionCallback.register_callbacks(@my_dialog)
   end
 
 
   def show
-    @my_dialog.show()
+    @my_dialog.show
   end
 
 end

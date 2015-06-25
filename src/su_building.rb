@@ -7,6 +7,8 @@ VERSION = [1, 0, 0].join(".")
 # global varible set app in debuging mode or not
 $DEBUG = true
 
+SKETCHUP_CONSOLE.show
+
 $PLATFORM = (RUBY_PLATFORM =~ /darwin/ ? "MACOS" : "WINDOWS")
 
 # directory we working on 
