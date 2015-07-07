@@ -4,8 +4,8 @@ building.controller('main', ["$scope", "$http", "$interval", function ($scope, $
   $scope.current_model = {};
   $scope.local_skp_names = "";
 
-  $scope.bridge = function (action, color) {
-    window.location.href = "skp:" + action + "@" + color;
+  $scope.bridge = function (action, param) {
+    window.location.href = "skp:" + action + "@" + param;
   }
 
   $scope.$watch("skp_names", function (newVal, old) {
@@ -15,11 +15,5 @@ building.controller('main', ["$scope", "$http", "$interval", function ($scope, $
   $scope.$watch("current_model", function (newVal, old) {
     $scope.bridge('logger', 'newval' + newVal.icon);
   })
-
-  $interval(function(){
-    $scope.bridge("current_model_change", "nothing")
-  }, 2000);
-
-
 
 }]);
